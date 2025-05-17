@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - EFATA PRIME Elevadores</title>
+    <meta name="description" content="Sistema de gerenciamento da Efata Prime Elevadores">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <a href="../index.html" class="logo">
+                    <img src="../img/logo.png" alt="Efata Prime Elevadores" style="height: 40px;">
+                </a>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="index.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="vistorias.html"><i class="fas fa-clipboard-check"></i> Vistorias</a></li>
+                <li><a href="ordens-servico.html"><i class="fas fa-tools"></i> Ordens de Serviço</a></li>
+                <li><a href="clientes.html"><i class="fas fa-users"></i> Clientes</a></li>
+                <li><a href="fotos.html"><i class="fas fa-images"></i> Galeria de Fotos</a></li>
+                <li><a href="relatorios.html"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
+                <li><a href="configuracoes.html"><i class="fas fa-cog"></i> Configurações</a></li>
+                <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+            </ul>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <div class="dashboard-header">
+                <h1 class="dashboard-title">Dashboard</h1>
+                <div class="dashboard-actions">
+                    <div class="user-info">
+                        <span id="userName">Carregando...</span>
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon primary">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>24</h3>
+                        <p>Vistorias Realizadas</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon success">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>18</h3>
+                        <p>Ordens de Serviço</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>5</h3>
+                        <p>Pendências</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon danger">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>42</h3>
+                        <p>Clientes Ativos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activities -->
+            <div class="table-container">
+                <div class="table-header">
+                    <h2 class="table-title">Atividades Recentes</h2>
+                    <div class="table-actions">
+                        <button class="btn btn-outline">Ver Todas</button>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Tipo</th>
+                            <th>Cliente</th>
+                            <th>Descrição</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>17/05/2025</td>
+                            <td>Vistoria</td>
+                            <td>Condomínio Central Park</td>
+                            <td>Vistoria técnica preventiva</td>
+                            <td><span class="status completed">Concluída</span></td>
+                            <td class="actions">
+                                <button class="edit"><i class="fas fa-eye"></i></button>
+                                <button class="edit"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>16/05/2025</td>
+                            <td>Ordem de Serviço</td>
+                            <td>Edifício Horizonte</td>
+                            <td>Substituição de peças</td>
+                            <td><span class="status pending">Pendente</span></td>
+                            <td class="actions">
+                                <button class="edit"><i class="fas fa-eye"></i></button>
+                                <button class="edit"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>15/05/2025</td>
+                            <td>Vistoria</td>
+                            <td>Empresarial Torre Sul</td>
+                            <td>Vistoria técnica corretiva</td>
+                            <td><span class="status completed">Concluída</span></td>
+                            <td class="actions">
+                                <button class="edit"><i class="fas fa-eye"></i></button>
+                                <button class="edit"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>14/05/2025</td>
+                            <td>Ordem de Serviço</td>
+                            <td>Residencial Parque das Flores</td>
+                            <td>Manutenção preventiva</td>
+                            <td><span class="status completed">Concluída</span></td>
+                            <td class="actions">
+                                <button class="edit"><i class="fas fa-eye"></i></button>
+                                <button class="edit"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>13/05/2025</td>
+                            <td>Ordem de Serviço</td>
+                            <td>Hospital São Lucas</td>
+                            <td>Reparo emergencial</td>
+                            <td><span class="status cancelled">Cancelada</span></td>
+                            <td class="actions">
+                                <button class="edit"><i class="fas fa-eye"></i></button>
+                                <button class="edit"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Upcoming Maintenance -->
+            <div class="table-container">
+                <div class="table-header">
+                    <h2 class="table-title">Próximas Manutenções</h2>
+                    <div class="table-actions">
+                        <button class="btn btn-outline">Ver Todas</button>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Cliente</th>
+                            <th>Endereço</th>
+                            <th>Tipo</th>
+                            <th>Técnico</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>20/05/2025</td>
+                            <td>Edifício Majestic</td>
+                            <td>Av. Paulista, 1000</td>
+                            <td>Preventiva</td>
+                            <td>Carlos Silva</td>
+                            <td class="actions">
+                                <button class="edit"><i class="fas fa-eye"></i></button>
+                                <button class="edit"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>21/05/2025</td>
+                            <td>Shopping Center Norte</td>
+                            <td>Av. Norte, 500</td>
+                            <td>Preventiva</td>
+                            <td>Marcos Oliveira</td>
+                            <td class="actions">
+                                <button class="edit"><i class="fas fa-eye"></i></button>
+                                <button class="edit"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>22/05/2025</td>
+                            <td>Condomínio Jardins</td>
+                            <td>Rua das Flores, 200</td>
+                            <td>Corretiva</td>
+                            <td>Paulo Santos</td>
+                            <td class="actions">
+                                <button class="edit"><i class="fas fa-eye"></i></button>
+                                <button class="edit"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

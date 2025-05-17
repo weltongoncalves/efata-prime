@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordens de Serviço - EFATA PRIME Elevadores</title>
+    <meta name="description" content="Sistema de gerenciamento de ordens de serviço da Efata Prime Elevadores">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <a href="../index.html" class="logo">
+                    <img src="../img/logo.png" alt="Efata Prime Elevadores" style="height: 40px;">
+                </a>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="vistorias.html"><i class="fas fa-clipboard-check"></i> Vistorias</a></li>
+                <li><a href="ordens-servico.html" class="active"><i class="fas fa-tools"></i> Ordens de Serviço</a></li>
+                <li><a href="clientes.html"><i class="fas fa-users"></i> Clientes</a></li>
+                <li><a href="fotos.html"><i class="fas fa-images"></i> Galeria de Fotos</a></li>
+                <li><a href="relatorios.html"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
+                <li><a href="configuracoes.html"><i class="fas fa-cog"></i> Configurações</a></li>
+                <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+            </ul>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <div class="dashboard-header">
+                <h1 class="dashboard-title">Ordens de Serviço</h1>
+                <div class="dashboard-actions">
+                    <button class="btn btn-primary" id="btnNovaOS"><i class="fas fa-plus"></i> Nova Ordem de Serviço</button>
+                </div>
+            </div>
+
+            <!-- Filtros -->
+            <div class="card mb-4 p-3">
+                <h3 class="mb-3">Filtros</h3>
+                <div class="d-flex flex-wrap gap-3">
+                    <div class="form-group" style="min-width: 200px; flex: 1;">
+                        <label for="filtroCliente" class="form-label">Cliente</label>
+                        <select id="filtroCliente" class="form-control">
+                            <option value="">Todos os clientes</option>
+                            <option value="1">Condomínio Central Park</option>
+                            <option value="2">Edifício Horizonte</option>
+                            <option value="3">Empresarial Torre Sul</option>
+                            <option value="4">Residencial Parque das Flores</option>
+                            <option value="5">Hospital São Lucas</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="min-width: 200px; flex: 1;">
+                        <label for="filtroStatus" class="form-label">Status</label>
+                        <select id="filtroStatus" class="form-control">
+                            <option value="">Todos os status</option>
+                            <option value="aberta">Aberta</option>
+                            <option value="em_andamento">Em andamento</option>
+                            <option value="concluida">Concluída</option>
+                            <option value="cancelada">Cancelada</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="min-width: 200px; flex: 1;">
+                        <label for="filtroData" class="form-label">Data</label>
+                        <input type="date" id="filtroData" class="form-control">
+                    </div>
+                    <div class="form-group" style="min-width: 200px; flex: 1;">
+                        <label for="filtroTecnico" class="form-label">Técnico</label>
+                        <select id="filtroTecnico" class="form-control">
+                            <option value="">Todos os técnicos</option>
+                            <option value="1">Carlos Silva</option>
+                            <option value="2">Marcos Oliveira</option>
+                            <option value="3">Paulo Santos</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end mt-3">
+                    <button class="btn btn-secondary me-2"><i class="fas fa-filter"></i> Filtrar</button>
+                    <button class="btn btn-outline"><i class="fas fa-times"></i> Limpar</button>
+                </div>
+            </div>
+
+            <!-- Lista de Ordens de Serviço -->
+            <div class="table-container">
+                <div class="table-header">
+                    <h2 class="table-title">Ordens de Serviço</h2>
+                    <div class="table-actions">
+                        <button class="btn btn-outline me-2"><i class="fas fa-file-export"></i> Exportar</button>
+                        <button class="btn btn-outline"><i class="fas fa-print"></i> Imprimir</button>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nº OS</th>
+                            <th>Data</th>
+                            <th>Cliente</th>
+                            <th>Tipo</th>
+                            <th>Técnico</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>OS-2025-001</td>
+                            <td>16/05/2025</td>
+                            <td>Edifício Horizonte</td>
+                            <td>Substituição de peças</td>
+                            <td>Carlos Silva</td>
+                            <td><span class="status pending">Pendente</span></td>
+                            <td class="actions">
+                                <button class="edit" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                <button class="edit" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="edit" title="Gerar PDF"><i class="fas fa-file-pdf"></i></button>
+                                <button class="delete" title="Excluir"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>OS-2025-002</td>
+                            <td>14/05/2025</td>
+                            <td>Residencial Parque das Flores</td>
+                            <td>Manutenção preventiva</td>
+                            <td>Marcos Oliveira</td>
+                            <td><span class="status completed">Concluída</span></td>
+                            <td class="actions">
+                                <button class="edit" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                <button class="edit" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="edit" title="Gerar PDF"><i class="fas fa-file-pdf"></i></button>
+                                <button class="delete" title="Excluir"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>OS-2025-003</td>
+                            <td>13/05/2025</td>
+                            <td>Hospital São Lucas</td>
+                            <td>Reparo emergencial</td>
+                            <td>Paulo Santos</td>
+                            <td><span class="status cancelled">Cancelada</span></td>
+                            <td class="actions">
+                                <button class="edit" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                <button class="edit" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="edit" title="Gerar PDF"><i class="fas fa-file-pdf"></i></button>
+                                <button class="delete" title="Excluir"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>OS-2025-004</td>
+                            <td>12/05/2025</td>
+                            <td>Condomínio Central Park</td>
+                            <td>Ajuste de porta</td>
+                            <td>Carlos Silva</td>
+                            <td><span class="status completed">Concluída</span></td>
+                            <td class="actions">
+                                <button class="edit" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                <button class="edit" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="edit" title="Gerar PDF"><i class="fas fa-file-pdf"></i></button>
+                                <button class="delete" title="Excluir"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>OS-2025-005</td>
+                            <td>11/05/2025</td>
+                            <td>Empresarial Torre Sul</td>
+                            <td>Modernização de painel</td>
+                            <td>Marcos Oliveira</td>
+                            <td><span class="status completed">Concluída</span></td>
+                            <td class="actions">
+                                <button class="edit" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                <button class="edit" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="edit" title="Gerar PDF"><i class="fas fa-file-pdf"></i></button>
+                                <button class="delete" title="Excluir"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-between align-items-center p-3">
+                    <div>Mostrando 1-5 de 5 registros</div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline" disabled><i class="fas fa-chevron-left"></i></button>
+                        <button class="btn btn-primary">1</button>
+                        <button class="btn btn-outline" disabled><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Nova OS -->
+    <div id="modalNovaOS" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nova Ordem de Serviço</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="formNovaOS">
+                    <div class="form-group">
+                        <label for="cliente" class="form-label">Cliente</label>
+                        <select id="cliente" class="form-control" required>
+                            <option value="">Selecione o cliente</option>
+                            <option value="1">Condomínio Central Park</option>
+                            <option value="2">Edifício Horizonte</option>
+                            <option value="3">Empresarial Torre Sul</option>
+                            <option value="4">Residencial Parque das Flores</option>
+                            <option value="5">Hospital São Lucas</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="endereco" class="form-label">Endereço</label>
+                        <input type="text" id="endereco" class="form-control" readonly>
+                    </div>
+                    <div class="d-flex gap-3">
+                        <div class="form-group" style="flex: 1;">
+                            <label for="data" class="form-label">Data</label>
+                            <input type="date" id="data" class="form-control" required>
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label for="hora" class="form-label">Hora</label>
+                            <input type="time" id="hora" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo" class="form-label">Tipo de Serviço</label>
+                        <select id="tipo" class="form-control" required>
+                            <option value="">Selecione o tipo</option>
+                            <option value="manutencao_preventiva">Manutenção Preventiva</option>
+                            <option value="manutencao_corretiva">Manutenção Corretiva</option>
+                            <option value="substituicao_pecas">Substituição de Peças</option>
+                            <option value="modernizacao">Modernização</option>
+                            <option value="instalacao">Instalação</option>
+                            <option value="emergencia">Atendimento Emergencial</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="descricao" class="form-label">Descrição do Serviço</label>
+                        <textarea id="descricao" class="form-control" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="tecnico" class="form-label">Técnico Responsável</label>
+                        <select id="tecnico" class="form-control" required>
+                            <option value="">Selecione o técnico</option>
+                            <option value="1">Carlos Silva</option>
+                            <option value="2">Marcos Oliveira</option>
+                            <option value="3">Paulo Santos</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="prioridade" class="form-label">Prioridade</label>
+                        <select id="prioridade" class="form-control" required>
+                            <option value="baixa">Baixa</option>
+                            <option value="media" selected>Média</option>
+                            <option value="alta">Alta</option>
+                            <option value="urgente">Urgente</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="observacoes" class="form-label">Observações</label>
+                        <textarea id="observacoes" class="form-control" rows="2"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="btnCancelarOS">Cancelar</button>
+                <button class="btn btn-primary" id="btnSalvarOS">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/ordens-servico.js"></script>
+</body>
+</html>
